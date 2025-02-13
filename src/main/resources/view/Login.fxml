@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="700.0" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edu.ijse.print_shop.Controller.LoginContro">
+   <children>
+      <ImageView fitHeight="754.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Images/bg.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="538.0" fitWidth="557.0" layoutX="-100.0" layoutY="-149.0" opacity="0.68" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Images/glow.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="301.0" fitWidth="317.0" layoutX="382.0" layoutY="389.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Images/glow.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="160.0" layoutY="162.0" prefHeight="377.0" prefWidth="372.0" style="-fx-background-radius: 10;">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3b3b3b5c" height="359.0" layoutX="-6.0" layoutY="1.0" opacity="0.71" stroke="#3b3b3b00" strokeType="INSIDE" width="386.0" />
+            <ImageView fitHeight="56.0" fitWidth="43.0" layoutX="18.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Images/hurwaLogo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="62.0" layoutY="36.0" text="Huruwagraphy print shop" textFill="WHITE" />
+            <Label layoutX="62.0" layoutY="54.0" text="Wellcome Back to the Huruwagraphy" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="112.0" text="Email :" textFill="WHITE" />
+            <TextField fx:id="txtEmail" layoutX="38.0" layoutY="141.0" prefHeight="33.0" prefWidth="290.0" promptText="email" style="-fx-background-color: none; -fx-border-color: #3b3b3b; -fx-border-radius: 10;" styleClass="txt" />
+            <Label layoutX="38.0" layoutY="194.0" text="Password :" textFill="WHITE" />
+            <PasswordField fx:id="txtPw" layoutX="38.0" layoutY="225.0" prefHeight="31.0" prefWidth="290.0" promptText="password" style="-fx-background-color: none; -fx-border-color: #3b3b3b; -fx-border-radius: 10;" styleClass="txt" />
+            <Button fx:id="btnLogin" layoutX="66.0" layoutY="291.0" mnemonicParsing="false" onAction="#Login" prefHeight="31.0" prefWidth="241.0" style="-fx-border-radius: 10;" styleClass="btn" text="Login" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

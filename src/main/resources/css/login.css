@@ -1,0 +1,22 @@
+/**
+ * --------------------------------------------
+ * Author: Heshan Dinuka Lakmal
+ * GitHub: https://github.com/Dinuka0512
+ * --------------------------------------------
+ * Created: 2/14/2025$ 3:16 AM$
+ * Project: Print_Shop$
+ * --------------------------------------------
+ **/
+
+.txt{
+    -fx-text-fill: white;
+}
+
+.btn{
+    -fx-transition: background-color 1.5s ease-in-out;
+}
+
+.btn:hover{
+    -fx-text-fill: white;
+    -fx-background-color: rgba(75, 75, 75, 0.28);
+}
