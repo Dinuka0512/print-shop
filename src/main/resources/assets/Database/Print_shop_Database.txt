@@ -38,3 +38,17 @@ CREATE TABLE payments(
 	amount DECIMAL(10,2),
 	FOREIGN KEY (o_Id) REFERENCES orders(o_Id) ON DELETE CASCADE ON UPDATE CASCADE 
 );
+
+
+--HERE INSERT THE VALUES FOR ORDER TYPE
+INSERT INTO order_type (OT_Id, description, pricePerOne) VALUES
+('OT001', 'A4 B&W', 12.00),
+('OT002', 'A4 Color', 35.00),
+('OT003', 'A4 Color double side', 50.00),
+('OT004', 'A4 sticker paper B&W', 40.00),
+('OT005', 'A4 sticker paper Color', 60.00),
+('OT006', 'A4 Photopaper Sticker B&W', 60.00),
+('OT007', 'A4 Photopaper Sticker Color', 80.00),
+('OT008', 'A4 Photopaper Black and White', 80.00),
+('OT009', 'A4 Photopaper Color', 120.00),
+('OT010', 'A4 Photopaper High Quality Color', 150.00);

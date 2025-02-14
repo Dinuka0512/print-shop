@@ -11,7 +11,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="700.0" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edu.ijse.print_shop.Controller.LoginContro">
+<AnchorPane fx:id="body" prefHeight="700.0" prefWidth="700.0" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edu.ijse.print_shop.Controller.LoginContro">
    <children>
       <ImageView fitHeight="754.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -46,7 +46,8 @@
             <TextField fx:id="txtEmail" layoutX="38.0" layoutY="141.0" prefHeight="33.0" prefWidth="290.0" promptText="email" style="-fx-background-color: none; -fx-border-color: #3b3b3b; -fx-border-radius: 10;" styleClass="txt" />
             <Label layoutX="38.0" layoutY="194.0" text="Password :" textFill="WHITE" />
             <PasswordField fx:id="txtPw" layoutX="38.0" layoutY="225.0" prefHeight="31.0" prefWidth="290.0" promptText="password" style="-fx-background-color: none; -fx-border-color: #3b3b3b; -fx-border-radius: 10;" styleClass="txt" />
-            <Button fx:id="btnLogin" layoutX="66.0" layoutY="291.0" mnemonicParsing="false" onAction="#Login" prefHeight="31.0" prefWidth="241.0" style="-fx-border-radius: 10;" styleClass="btn" text="Login" />
+            <Button fx:id="btnLogin" layoutX="66.0" layoutY="294.0" mnemonicParsing="false" onAction="#Login" prefHeight="31.0" prefWidth="241.0" style="-fx-border-radius: 10;" styleClass="btn" text="Login" />
+            <Label fx:id="error" layoutX="106.0" layoutY="266.0" opacity="0.61" text="Invalid Email or password" textAlignment="CENTER" textFill="RED" visible="false" />
          </children>
       </AnchorPane>
    </children>
