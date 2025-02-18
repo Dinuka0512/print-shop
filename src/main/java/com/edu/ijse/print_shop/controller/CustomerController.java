@@ -1,6 +1,11 @@
 package com.edu.ijse.print_shop.controller;
 
+import com.edu.ijse.print_shop.bo.BOFactory;
+import com.edu.ijse.print_shop.bo.custom.CustomerBO;
+import com.edu.ijse.print_shop.dto.CustomerDTO;
 import com.edu.ijse.print_shop.dto.tm.CustomerTm;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,9 +13,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class Customer implements Initializable {
+public class CustomerController implements Initializable {
     @FXML
     private TextField txtContact;
 
@@ -54,7 +60,7 @@ public class Customer implements Initializable {
     private TableColumn<CustomerTm, String> columnName;
 
     //========
-//    private
+    private CustomerBO customerBO = (CustomerBO) BOFactory.getInstance().getBOType(BOFactory.getBO.CUSTOMER);
     //========
 
     @Override
@@ -71,7 +77,26 @@ public class Customer implements Initializable {
 
     private void loadTable() {
         //HERE LOAD THE TABLE
+        try{
+            ArrayList<CustomerDTO> customerDTOS = customerBO.getAllCustomers();
+            ObservableList<CustomerTm> observableList = FXCollections.observableArrayList();
+            for(CustomerDTO customerDTO : customerDTOS){
+                CustomerTm customerTm = new CustomerTm(
+                        customerDTO.getCustomer_ID(),
+                        customerDTO.getName(),
+                        customerDTO.getAddress(),
+                        customerDTO.getEmail(),
+                        customerDTO.getContact()
+                );
 
+                observableList.add(customerTm);
+            }
+
+            tblCustomer.setItems(observableList);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
