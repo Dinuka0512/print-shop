@@ -82,6 +82,14 @@ public class CustomerController implements Initializable {
         pageDefaullt();
     }
 
+    private void genarateId() {
+        try{
+            lblCustId.setText(customerBO.genarateId());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     private boolean isDataValid(){
         if(Validation.isValidName(txtName.getText())){
             if(Validation.isValidName(txtAddress.getText())){
@@ -127,6 +135,7 @@ public class CustomerController implements Initializable {
     }
 
     private void loadTable() {
+        genarateId();
         //HERE LOAD THE TABLE
         try{
             ArrayList<CustomerDTO> customerDTOS = customerBO.getAllCustomers();
@@ -192,7 +201,7 @@ public class CustomerController implements Initializable {
     @FXML
     void reset(ActionEvent event) {
         pageDefaullt();
-        lblCustId.setText("");
+        genarateId();
         txtContact.setText("");
         txtAddress.setText("");
         txtEmail.setText("");

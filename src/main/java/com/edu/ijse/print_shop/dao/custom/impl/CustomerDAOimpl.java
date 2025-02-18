@@ -10,6 +10,22 @@ import java.util.ArrayList;
 
 public class CustomerDAOimpl implements CustomerDAO {
     @Override
+    public String generateNewId() throws SQLException, ClassNotFoundException {
+        String sql = "select cust_Id from customer order by cust_Id desc limit 1";
+        ResultSet res = CrudUtil.execute(sql);
+        if(res.next()){
+            String lastId = res.getString("cust_Id"); //cust002
+            String subString = lastId.substring(4);
+            int i = Integer.parseInt(subString);
+            i = i +1; // ADD
+            String newId = String.format("Cust%03d",i);
+            return newId;
+        }
+
+        return "Cust001";
+    }
+
+    @Override
     public boolean isEmailExist(String email) throws SQLException, ClassNotFoundException {
         String sql = "select * from customer where email = ?";
         ResultSet res = CrudUtil.execute(sql, email);
@@ -61,11 +77,6 @@ public class CustomerDAOimpl implements CustomerDAO {
     @Override
     public boolean exist(String id) throws SQLException, ClassNotFoundException {
         return false;
-    }
-
-    @Override
-    public String generateNewId() throws SQLException, ClassNotFoundException {
-        return null;
     }
 
     @Override

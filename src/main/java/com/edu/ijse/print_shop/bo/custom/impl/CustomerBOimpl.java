@@ -42,4 +42,9 @@ public class CustomerBOimpl implements CustomerBO {
     public boolean save(CustomerDTO dto) throws SQLException, ClassNotFoundException {
         return customerDao.save(new Customer(dto.getCustomer_ID(), dto.getName(), dto.getAddress(), dto.getEmail(), dto.getContact()));
     }
+
+    @Override
+    public String genarateId() throws SQLException, ClassNotFoundException {
+        return customerDao.generateNewId();
+    }
 }
