@@ -1,6 +1,7 @@
 package com.edu.ijse.print_shop.dao.custom.impl;
 
 import com.edu.ijse.print_shop.dao.custom.CustomerDAO;
+import com.edu.ijse.print_shop.dto.CustomerDTO;
 import com.edu.ijse.print_shop.entity.Customer;
 import com.edu.ijse.print_shop.util.CrudUtil;
 
@@ -9,6 +10,22 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class CustomerDAOimpl implements CustomerDAO {
+    @Override
+    public String getEmail(String id) throws SQLException, ClassNotFoundException {
+        String sql = "select email from customer where cust_Id = ?";
+        ResultSet res = CrudUtil.execute(sql, id);
+        if(res.next()){
+            return res.getString("email");
+        }
+        return null;
+    }
+
+    @Override
+    public boolean update(CustomerDTO dto) throws SQLException, ClassNotFoundException {
+        String sql = "update customer set name = ?, address = ?, email =?, contact = ?,where cust_Id = ?";
+        return CrudUtil.execute(sql, dto.getName(), dto.getAddress(), dto.getEmail(), dto.getContact(), dto.getCustomer_ID());
+    }
+
     @Override
     public String generateNewId() throws SQLException, ClassNotFoundException {
         String sql = "select cust_Id from customer order by cust_Id desc limit 1";

@@ -169,6 +169,8 @@ public class CustomerController implements Initializable {
                 //DELETE
                 try{
                     if(customerBO.deleteCustomers(lblCustId.getText())){
+                        pageDefaullt();
+                        loadTable();
                         new Alert(Alert.AlertType.CONFIRMATION, "Customer Deleted").show();
                     }
                 }catch (Exception e){
@@ -180,7 +182,19 @@ public class CustomerController implements Initializable {
 
     @FXML
     void update(ActionEvent event) {
-
+        if(isDataValid()){
+            try{
+                if(txtEmail.getText().equals(customerBO.getEmail(lblCustId.getText())) || isEmailValidAndUnique()){
+                    if(customerBO.update(new CustomerDTO(lblCustId.getText(), txtName.getText(), txtAddress.getText(), txtEmail.getText(), txtContact.getText()))){
+                        loadTable();
+                        pageDefaullt();
+                        new Alert(Alert.AlertType.CONFIRMATION, "Updated").show();
+                    }
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 
     @FXML

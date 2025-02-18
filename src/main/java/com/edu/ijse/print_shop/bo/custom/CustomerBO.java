@@ -14,5 +14,7 @@ public interface CustomerBO extends SuperBO {
     boolean deleteCustomers(String id) throws SQLException,ClassNotFoundException;
     boolean isEmailExist(String email) throws SQLException, ClassNotFoundException;
     boolean save(CustomerDTO dto) throws SQLException, ClassNotFoundException;
+    boolean update(CustomerDTO dto) throws SQLException, ClassNotFoundException;
     String genarateId() throws SQLException, ClassNotFoundException;
+    String getEmail(String id) throws SQLException, ClassNotFoundException;
 }

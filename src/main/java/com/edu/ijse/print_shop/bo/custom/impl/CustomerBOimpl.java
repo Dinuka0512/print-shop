@@ -44,7 +44,17 @@ public class CustomerBOimpl implements CustomerBO {
     }
 
     @Override
+    public boolean update(CustomerDTO dto) throws SQLException, ClassNotFoundException {
+        return customerDao.update(new Customer(dto.getCustomer_ID(), dto.getName(), dto.getAddress(), dto.getEmail(), dto.getContact()));
+    }
+
+    @Override
     public String genarateId() throws SQLException, ClassNotFoundException {
         return customerDao.generateNewId();
+    }
+
+    @Override
+    public String getEmail(String id) throws SQLException, ClassNotFoundException {
+        return customerDao.getEmail(id);
     }
 }
