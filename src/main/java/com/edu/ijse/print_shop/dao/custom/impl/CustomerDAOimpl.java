@@ -9,6 +9,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class CustomerDAOimpl implements CustomerDAO {
+    @Override
+    public boolean delete(String id) throws SQLException, ClassNotFoundException {
+        return false;
+    }
+
 
     @Override
     public ArrayList<Customer> getAll() throws SQLException, ClassNotFoundException {
@@ -42,11 +47,6 @@ public class CustomerDAOimpl implements CustomerDAO {
 
     @Override
     public boolean exist(String id) throws SQLException, ClassNotFoundException {
-        return false;
-    }
-
-    @Override
-    public boolean delete(String id) throws SQLException, ClassNotFoundException {
         return false;
     }
 

@@ -11,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -31,6 +33,9 @@ public class CustomerController implements Initializable {
 
     @FXML
     private Button btnUpdate;
+
+    @FXML
+    private Button btnReset;
 
     @FXML
     private TextField txtEmail;
@@ -73,6 +78,14 @@ public class CustomerController implements Initializable {
         columnContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
 
         loadTable();
+        pageDefaullt();
+    }
+
+    private void pageDefaullt() {
+        btnDelete.setDisable(true);
+        btnUpdate.setDisable(true);
+        btnReset.setDisable(true);
+        btnSave.setDisable(false);
     }
 
     private void loadTable() {
@@ -101,15 +114,62 @@ public class CustomerController implements Initializable {
 
     @FXML
     void delete(ActionEvent event) {
-
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you really want to delete?", ButtonType.YES, ButtonType.NO);
+        alert.setTitle("Confirmation Dialog");
+        // Show the alert and wait for the user's response
+        alert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.YES) {
+                //DELETE
+                try{
+                    if(customerBO.deleteCustomers(lblCustId.getText())){
+                        new Alert(Alert.AlertType.CONFIRMATION, "Customer Deleted").show();
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     @FXML
     void update(ActionEvent event) {
 
     }
+
     @FXML
     void save(ActionEvent event) {
 
+    }
+
+    @FXML
+    void reset(ActionEvent event) {
+        pageDefaullt();
+        lblCustId.setText("");
+        txtContact.setText("");
+        txtAddress.setText("");
+        txtEmail.setText("");
+        txtName.setText("");
+
+        txtName.setPromptText("name");
+        txtAddress.setPromptText("address");
+        txtContact.setPromptText("contact");
+        txtEmail.setPromptText("email");
+    }
+
+    @FXML
+    void onClick(MouseEvent event) {
+        btnReset.setDisable(false);
+        btnDelete.setDisable(false);
+        btnUpdate.setDisable(false);
+        btnSave.setDisable(true);
+
+        CustomerTm customerTm = tblCustomer.getSelectionModel().getSelectedItem();
+        if(customerTm != null){
+            lblCustId.setText(customerTm.getCustomer_ID());
+            txtName.setText(customerTm.getName());
+            txtAddress.setText(customerTm.getAddress());
+            txtContact.setText(customerTm.getContact());
+            txtEmail.setText(customerTm.getEmail());
+        }
     }
 }

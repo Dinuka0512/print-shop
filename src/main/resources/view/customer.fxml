@@ -8,7 +8,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="700.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edu.ijse.print_shop.controller.CustomerController">
    <children>
       <ImageView fitHeight="723.0" fitWidth="634.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
@@ -43,7 +42,7 @@
       <Button id="button" fx:id="btnDelete" layoutX="282.0" layoutY="217.0" mnemonicParsing="false" onAction="#delete" prefHeight="31.0" prefWidth="105.0" style="-fx-background-color: #a70000;" text="Delete" textFill="WHITE" />
       <Button fx:id="btnUpdate" layoutX="399.0" layoutY="217.0" mnemonicParsing="false" onAction="#update" prefHeight="31.0" prefWidth="111.0" style="-fx-background-color: #003a78;" text="Update" textFill="WHITE" />
       <Button fx:id="btnSave" layoutX="521.0" layoutY="217.0" mnemonicParsing="false" onAction="#save" prefHeight="31.0" prefWidth="86.0" style="-fx-background-color: #006e2a;" text="Save" textFill="WHITE" />
-      <TableView fx:id="tblCustomer" layoutX="26.0" layoutY="265.0" prefHeight="410.0" prefWidth="581.0">
+      <TableView fx:id="tblCustomer" layoutX="26.0" layoutY="265.0" onMouseClicked="#onClick" prefHeight="410.0" prefWidth="581.0">
         <columns>
           <TableColumn fx:id="columnId" prefWidth="105.0" text="Customer ID" />
           <TableColumn fx:id="columnName" prefWidth="117.0" text="Name" />
@@ -52,5 +51,6 @@
             <TableColumn fx:id="columnContact" prefWidth="92.0" text="Contact" />
         </columns>
       </TableView>
+      <Button id="button" fx:id="btnReset" layoutX="165.0" layoutY="217.0" mnemonicParsing="false" onAction="#reset" prefHeight="31.0" prefWidth="105.0" style="-fx-background-color: #494949;" text="Reset" textFill="WHITE" />
    </children>
 </AnchorPane>
