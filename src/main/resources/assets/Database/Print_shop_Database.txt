@@ -1,54 +1,53 @@
-CREATE DATABASE printShop;
+CREATE database printShop;
 USE printShop;
 
-
-CREATE TABLE customer(
-	cust_Id VARCHAR(255) PRIMARY KEY,
-	name VARCHAR(255) NOT NULL,
-	address VARCHAR(255),
-	email VARCHAR(255) NOT NULL UNIQUE,
-	contact VARCHAR(255) NOT NULL
+CREATE TABLE customer (
+    cust_Id VARCHAR(255) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    address VARCHAR(255),
+    email VARCHAR(255) NOT NULL UNIQUE,
+    contact VARCHAR(255) NOT NULL
 );
 
-
-
-CREATE TABLE order_Type(
-	OT_Id VARCHAR(255) PRIMARY KEY,
-	description VARCHAR(255),
-	pricePerOne DECIMAL(10,2)
+CREATE TABLE paper_stock (
+    paper_stock_Id INT PRIMARY KEY,
+    brand VARCHAR(255),
+    paper_Size VARCHAR(50),
+    paper_Qty INT
 );
 
-
-
-CREATE TABLE orders(
-	o_Id VARCHAR(255) PRIMARY KEY,
-	cust_Id VARCHAR(255) NOT NULL,
-	OT_Id VARCHAR(255) NOT NULL,
-	date DATE,
-	FOREIGN KEY(cust_Id) REFERENCES customer(cust_Id) ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY(OT_Id) REFERENCES order_Type(OT_Id) ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE paper_details (
+    paper_details_Id INT PRIMARY KEY,
+    name VARCHAR(255),
+    cost DECIMAL(10,2)
 );
 
-
-
-CREATE TABLE payments(
-	p_Id VARCHAR(255) PRIMARY KEY,
-	date DATE NOT NULL,
-	o_Id VARCHAR(255),
-	amount DECIMAL(10,2),
-	FOREIGN KEY (o_Id) REFERENCES orders(o_Id) ON DELETE CASCADE ON UPDATE CASCADE 
+CREATE TABLE new_orders (
+    order_ID VARCHAR(255) PRIMARY KEY,
+    customer_Id VARCHAR(255) NOT NULL,
+    paper_details_Id INT NOT NULL,
+    date DATE,
+    FOREIGN KEY (customer_Id) REFERENCES customer(cust_Id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (paper_details_Id) REFERENCES paper_details(paper_details_Id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+CREATE TABLE payments (
+    p_Id VARCHAR(255) PRIMARY KEY,
+    date DATE NOT NULL,
+    o_Id VARCHAR(255),
+    amount DECIMAL(10,2),
+    FOREIGN KEY (o_Id) REFERENCES new_orders(order_ID) ON DELETE CASCADE ON UPDATE CASCADE
+);
 
---HERE INSERT THE VALUES FOR ORDER TYPE
-INSERT INTO order_type (OT_Id, description, pricePerOne) VALUES
-('OT001', 'A4 B&W', 12.00),
-('OT002', 'A4 Color', 35.00),
-('OT003', 'A4 Color double side', 50.00),
-('OT004', 'A4 sticker paper B&W', 40.00),
-('OT005', 'A4 sticker paper Color', 60.00),
-('OT006', 'A4 Photopaper Sticker B&W', 60.00),
-('OT007', 'A4 Photopaper Sticker Color', 80.00),
-('OT008', 'A4 Photopaper Black and White', 80.00),
-('OT009', 'A4 Photopaper Color', 120.00),
-('OT010', 'A4 Photopaper High Quality Color', 150.00);
+INSERT INTO paper_details (paper_details_Id, name, cost) VALUES
+(1, 'A4 B&W', 12.00),
+(2, 'A4 Color', 35.00),
+(3, 'A4 Color double side', 50.00),
+(4, 'A4 sticker paper B&W', 40.00),
+(5, 'A4 sticker paper Color', 60.00),
+(6, 'A4 Photopaper Sticker B&W', 60.00),
+(7, 'A4 Photopaper Sticker Color', 80.00),
+(8, 'A4 Photopaper Black and White', 80.00),
+(9, 'A4 Photopaper Color', 120.00),
+(10, 'A4 Photopaper High Quality Color', 150.00);
+
