@@ -10,11 +10,22 @@ import java.util.ArrayList;
 
 public class CustomerDAOimpl implements CustomerDAO {
     @Override
+    public boolean isEmailExist(String email) throws SQLException, ClassNotFoundException {
+        String sql = "select * from customer where email = ?";
+        ResultSet res = CrudUtil.execute(sql, email);
+        if(res.next()){
+            //ALREADY HAVE
+            return false;
+        }
+        //UNIQUE
+        return true;
+    }
+
+    @Override
     public boolean delete(String id) throws SQLException, ClassNotFoundException {
         String sql = "delete from customer where cust_Id = ?";
         return CrudUtil.execute(sql,id);
     }
-
 
     @Override
     public ArrayList<Customer> getAll() throws SQLException, ClassNotFoundException {
@@ -38,7 +49,8 @@ public class CustomerDAOimpl implements CustomerDAO {
 
     @Override
     public boolean save(Customer dto) throws SQLException, ClassNotFoundException {
-        return false;
+        String sql = "insert into customer values (?,?,?,?,?)";
+        return CrudUtil.execute(sql,dto.getCustomer_ID(), dto.getName(), dto.getAddress(), dto.getEmail(), dto.getCustomer_ID());
     }
 
     @Override

@@ -28,9 +28,18 @@ public class CustomerBOimpl implements CustomerBO {
 
         return customerDTOS;
     }
-
     @Override
     public boolean deleteCustomers(String id) throws SQLException, ClassNotFoundException {
         return customerDao.delete(id);
+    }
+
+    @Override
+    public boolean isEmailExist(String email) throws SQLException, ClassNotFoundException {
+        return customerDao.isEmailExist(email);
+    }
+
+    @Override
+    public boolean save(CustomerDTO dto) throws SQLException, ClassNotFoundException {
+        return customerDao.save(new Customer(dto.getCustomer_ID(), dto.getName(), dto.getAddress(), dto.getEmail(), dto.getContact()));
     }
 }

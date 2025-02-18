@@ -4,6 +4,7 @@ import com.edu.ijse.print_shop.bo.BOFactory;
 import com.edu.ijse.print_shop.bo.custom.CustomerBO;
 import com.edu.ijse.print_shop.dto.CustomerDTO;
 import com.edu.ijse.print_shop.dto.tm.CustomerTm;
+import com.edu.ijse.print_shop.util.Validation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -81,6 +82,43 @@ public class CustomerController implements Initializable {
         pageDefaullt();
     }
 
+    private boolean isDataValid(){
+        if(Validation.isValidName(txtName.getText())){
+            if(Validation.isValidName(txtAddress.getText())){
+                if(Validation.isValidEmail(txtEmail.getText())){
+                    if(Validation.isValidMobileNumber(txtContact.getText())){
+                        return true;
+                    }else{
+                        new Alert(Alert.AlertType.WARNING, "Invalid Contact").show();
+                        return false;
+                    }
+                }else{
+                    new Alert(Alert.AlertType.WARNING, "Invalid Email").show();
+                    return false;
+                }
+            }else{
+                new Alert(Alert.AlertType.WARNING, "Invalid Address").show();
+                return false;
+            }
+        }else{
+            new Alert(Alert.AlertType.WARNING, "Invalid name").show();
+            return false;
+        }
+    }
+    private boolean isEmailValidAndUnique(){
+        if(Validation.isValidEmail(txtEmail.getText())){
+            try{
+                if(customerBO.isEmailExist(txtEmail.getText())){
+                    //UNIQUE
+                    return true;
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
+
     private void pageDefaullt() {
         btnDelete.setDisable(true);
         btnUpdate.setDisable(true);
@@ -138,7 +176,17 @@ public class CustomerController implements Initializable {
 
     @FXML
     void save(ActionEvent event) {
-
+        if(isDataValid() && isEmailValidAndUnique()){
+            try{
+                if(customerBO.save(new CustomerDTO(lblCustId.getText(), txtName.getText(), txtAddress.getText(), txtEmail.getText(), txtContact.getText()))){
+                    new Alert(Alert.AlertType.CONFIRMATION, "Saved").show();
+                    loadTable();
+                    pageDefaullt();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 
     @FXML
@@ -158,13 +206,13 @@ public class CustomerController implements Initializable {
 
     @FXML
     void onClick(MouseEvent event) {
-        btnReset.setDisable(false);
-        btnDelete.setDisable(false);
-        btnUpdate.setDisable(false);
-        btnSave.setDisable(true);
-
         CustomerTm customerTm = tblCustomer.getSelectionModel().getSelectedItem();
         if(customerTm != null){
+            btnReset.setDisable(false);
+            btnDelete.setDisable(false);
+            btnUpdate.setDisable(false);
+            btnSave.setDisable(true);
+
             lblCustId.setText(customerTm.getCustomer_ID());
             txtName.setText(customerTm.getName());
             txtAddress.setText(customerTm.getAddress());
