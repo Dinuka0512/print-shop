@@ -11,7 +11,8 @@ import java.util.ArrayList;
 public class CustomerDAOimpl implements CustomerDAO {
     @Override
     public boolean delete(String id) throws SQLException, ClassNotFoundException {
-        return false;
+        String sql = "delete from customer where cust_Id = ?";
+        return CrudUtil.execute(sql,id);
     }
 
 
