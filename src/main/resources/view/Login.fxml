@@ -11,7 +11,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="body" prefHeight="700.0" prefWidth="700.0" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edu.ijse.print_shop.Controller.LoginContro">
+<AnchorPane fx:id="body" prefHeight="700.0" prefWidth="700.0" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edu.ijse.print_shop.controller.LoginContro">
    <children>
       <ImageView fitHeight="754.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
          <image>

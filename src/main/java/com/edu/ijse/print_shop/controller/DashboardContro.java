@@ -1,19 +1,14 @@
-package com.edu.ijse.print_shop.Controller;
+package com.edu.ijse.print_shop.controller;
 
-import com.edu.ijse.print_shop.Main;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
-import java.nio.file.FileAlreadyExistsException;
 
 public class DashboardContro {
     @FXML

@@ -1,4 +1,4 @@
-package com.edu.ijse.print_shop.Controller;
+package com.edu.ijse.print_shop.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

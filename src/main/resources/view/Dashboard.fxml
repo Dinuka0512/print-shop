@@ -10,7 +10,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="700.0" stylesheets="@../css/Dashboard.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edu.ijse.print_shop.Controller.DashboardContro">
+<AnchorPane prefHeight="700.0" prefWidth="700.0" stylesheets="@../css/Dashboard.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edu.ijse.print_shop.controller.DashboardContro">
    <children>
       <ImageView fitHeight="700.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
          <image>
