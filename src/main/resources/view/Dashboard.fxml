@@ -45,8 +45,34 @@
       <Label fx:id="Lblorder" layoutX="75.0" layoutY="403.0" text="Orders" textFill="WHITE" visible="false" />
       <Label fx:id="lblCustomer" layoutX="75.0" layoutY="276.0" text="Customer" textFill="WHITE" visible="false" />
       <Label fx:id="Lblpapers" layoutX="75.0" layoutY="530.0" text="Papers" textFill="WHITE" visible="false" />
-      <AnchorPane layoutX="116.0" layoutY="46.0" prefHeight="129.0" prefWidth="253.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" />
-      <AnchorPane layoutX="116.0" layoutY="197.0" prefHeight="129.0" prefWidth="253.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" />
+      <AnchorPane layoutX="251.0" layoutY="53.0" prefHeight="129.0" prefWidth="128.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+         <children>
+            <Label layoutX="13.0" layoutY="16.0" text="Total printouts">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="17.0" prefHeight="103.0" prefWidth="83.0" text="01">
+               <font>
+                  <Font name="System Bold" size="70.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="117.0" layoutY="53.0" prefHeight="129.0" prefWidth="128.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+         <children>
+            <Label layoutX="13.0" layoutY="16.0" text="Total printouts">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="17.0" prefHeight="103.0" prefWidth="83.0" text="01">
+               <font>
+                  <Font name="System Bold" size="70.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <AnchorPane layoutX="116.0" layoutY="197.0" prefHeight="129.0" prefWidth="264.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" />
       <Label layoutX="403.0" layoutY="46.0" text="Best Customers :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -95,5 +121,11 @@
       <Label layoutX="557.0" layoutY="321.0" text="Rs.xxx" textFill="#bfbfbf" />
       <Label layoutX="555.0" layoutY="250.0" text="Rs.xxx" textFill="#bfbfbf" />
       <Label layoutX="555.0" layoutY="203.0" text="Rs.xxx" textFill="#bfbfbf" />
+      <Label layoutX="116.0" layoutY="29.0" text="Today" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="body" layoutX="65.0" prefHeight="700.0" prefWidth="634.0" />
    </children>
 </AnchorPane>

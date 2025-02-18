@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="700.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edu.ijse.print_shop.Controller.Customer">
+   <children>
+      <ImageView fitHeight="723.0" fitWidth="634.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Images/bg.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="723.0" fitWidth="634.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Images/bg.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="27.0" layoutY="28.0" text="Customer" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="78.0" text="Customer_ID : " textFill="WHITE" />
+      <Label layoutX="139.0" layoutY="78.0" prefHeight="21.0" prefWidth="58.0" text="Cust001" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="117.0" text="Name :" textFill="WHITE" />
+      <TextField layoutX="94.0" layoutY="112.0" prefHeight="31.0" prefWidth="220.0" promptText="name" />
+      <Label layoutX="29.0" layoutY="165.0" text="Address :" textFill="WHITE" />
+      <TextField layoutX="94.0" layoutY="160.0" prefHeight="31.0" prefWidth="220.0" promptText="address" />
+      <TextField layoutX="387.0" layoutY="112.0" prefHeight="31.0" prefWidth="220.0" promptText="email" />
+      <Label layoutX="322.0" layoutY="117.0" text="Email :" textFill="WHITE" />
+      <Label layoutX="322.0" layoutY="164.0" text="Contact :" textFill="WHITE" />
+      <TextField layoutX="387.0" layoutY="159.0" prefHeight="31.0" prefWidth="220.0" promptText="contact" />
+      <Button id="button" layoutX="282.0" layoutY="217.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="105.0" style="-fx-background-color: #a70000;" text="Delete" textFill="WHITE" />
+      <Button layoutX="399.0" layoutY="217.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="111.0" style="-fx-background-color: #003a78;" text="Update" textFill="WHITE" />
+      <Button layoutX="521.0" layoutY="217.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="86.0" style="-fx-background-color: #006e2a;" text="Save" textFill="WHITE" />
+      <TableView layoutX="26.0" layoutY="265.0" prefHeight="410.0" prefWidth="581.0">
+        <columns>
+          <TableColumn prefWidth="105.0" text="Customer ID" />
+          <TableColumn prefWidth="117.0" text="Name" />
+            <TableColumn prefWidth="145.0" text="Address" />
+            <TableColumn prefWidth="121.0" text="Email" />
+            <TableColumn prefWidth="92.0" text="Contact" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
