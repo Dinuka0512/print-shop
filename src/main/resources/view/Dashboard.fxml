@@ -29,12 +29,12 @@
                   <Image url="@../assets/Images/orders.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="44.0" fitWidth="39.0" layoutX="13.0" layoutY="264.0" onMouseEntered="#showlblCust" onMouseExited="#removelblCust" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="44.0" fitWidth="39.0" layoutX="13.0" layoutY="264.0" onMouseClicked="#openManageCustomer" onMouseEntered="#showlblCust" onMouseExited="#removelblCust" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/Images/customer.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="33.0" fitWidth="39.0" layoutX="16.0" layoutY="142.0" onMouseEntered="#showlblHome" onMouseExited="#removelblHome" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="33.0" fitWidth="39.0" layoutX="16.0" layoutY="142.0" onMouseClicked="#openDashboard" onMouseEntered="#showlblHome" onMouseExited="#removelblHome" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/Images/home.png" />
                </image>

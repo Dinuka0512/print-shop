@@ -29,7 +29,7 @@ public class LoginContro {
 
     @FXML
     void Login(ActionEvent event) {
-        if(txtEmail.getText().equals("admin@gmail.com") && txtPw.getText().equals("admin")){
+        if(txtEmail.getText().equals("admin") && txtPw.getText().equals("admin")){
             error.setVisible(false);
             //NAVIGATE TO DASHBOARD
             try{
